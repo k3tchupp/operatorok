@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,7 +25,13 @@ namespace operatorok
                 }
             }
 
+            Console.WriteLine($"2. feladat: Napi kölcsönzések száma: {list.Count}");
 
+            Console.WriteLine($"3. feladat: Kifejezések maradékos osztással: {list.Where(x => x.op == "mod").Count()}";
+
+            Console.WriteLine($"4. feladat: {(list.Any(x => x.szam1 % 10 == 0 && x.szam2 % 10 == 0) ? "Van ilyen kifejezés!" : "Nincs ilyen kifejezés!")};
+
+            
         }
     }
 }
