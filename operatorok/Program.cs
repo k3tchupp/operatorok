@@ -30,8 +30,70 @@ namespace operatorok
             Console.WriteLine($"3. feladat: Kifejezések maradékos osztással: {list.Where(x => x.op == "mod").Count()}";
 
             Console.WriteLine($"4. feladat: {(list.Any(x => x.szam1 % 10 == 0 && x.szam2 % 10 == 0) ? "Van ilyen kifejezés!" : "Nincs ilyen kifejezés!")};
-
             
+
+            Console.WriteLine("5. feladat: Statisztika");
+            string[] operatorok = new string[6] { "mod", "/", "div", "-", "*", "+" };
+
+            foreach (string item1 in operatorok)
+            {
+                int count = 0;
+
+                foreach (Adat item2 in list)
+                {
+                    if (item2.op == item1)
+                    {
+                        count++;
+                    }
+                }
+
+                Console.WriteLine($"\t{item1} -> {count} db");
+            }
+
+
+
+            public string CalculateExpression(int szam1, int szam2, string oper)
+            {
+                try
+                {
+                    switch (oper)
+                    {
+                        case "+":
+                            return (szam1 + szam2).ToString();
+                        case "-":
+                            return (szam1 - szam2).ToString();
+                        case "*":
+                            return (szam1 * szam2).ToString();
+                        case "/":
+                            if (szam2 == 0)
+                            {
+                                throw new DivideByZeroException();
+                            }
+                            return (szam1 / (double)szam2).ToString();
+                        case "div":
+                            if (szam2 == 0)
+                            {
+                                throw new DivideByZeroException();
+                            }
+                            return (szam1 / szam2).ToString();
+                        case "mod":
+                            if (szam2 == 0)
+                            {
+                                throw new DivideByZeroException();
+                            }
+                            return (szam1 % szam2).ToString();
+                        default:
+                            return "Hibás operátor!";
+                    }
+                }
+                catch
+                {
+                    return "Egyéb hiba!";
+                }
+            }
+
+
+
         }
     }
 }
