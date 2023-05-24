@@ -52,7 +52,7 @@ namespace operatorok
 
 
 
-            public string CalculateExpression(int szam1, int szam2, string oper)
+            public string Kiszamol(int szam1, int szam2, string oper)
             {
                 try
                 {
@@ -93,7 +93,21 @@ namespace operatorok
             }
 
 
+            while (true)
+            {
+                Console.Write("7. feladat: Kérek egy kifejezést (pl.: 1 + 1): ");
+                string elso = Console.ReadLine();
+                string log = Console.ReadLine();
+                string masodik = Console.ReadLine();
 
+                // nem tudom 
+            }
+
+
+            StreamWriter sw = new StreamWriter("eredmenyek.txt");
+            list.ForEach(x => sw.WriteLine($"{x.szam1} {x.op} {x.szam2} = {Eval(x)}"));
+
+            Console.WriteLine("8. feladat: eredmenyek.txt");
         }
     }
 }
